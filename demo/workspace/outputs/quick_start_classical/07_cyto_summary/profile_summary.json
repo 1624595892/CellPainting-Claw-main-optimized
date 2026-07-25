@@ -1,0 +1,30 @@
+{
+  "implementation": "cellpaint_pipeline.profile_summaries.classical",
+  "input_profile_path": "/mnt/d/CellPainting-Claw-main/CellPainting-Claw-main/demo/workspace/outputs/quick_start_classical/06_cyto_select/pycytominer/feature_selected.parquet",
+  "output_dir": "/mnt/d/CellPainting-Claw-main/CellPainting-Claw-main/demo/workspace/outputs/quick_start_classical/07_cyto_summary",
+  "row_count": 2,
+  "feature_count": 6,
+  "metadata_column_count": 6,
+  "metadata_columns": [
+    "Metadata_Plate",
+    "Metadata_Well",
+    "Metadata_Object_Count",
+    "Metadata_Treatment",
+    "Metadata_ControlType",
+    "Metadata_Batch"
+  ],
+  "top_feature_count": 6,
+  "top_variable_feature_names": [
+    "Cells_AreaShape_BoundingBoxMinimum_Y",
+    "Cells_AreaShape_BoundingBoxMaximum_Y",
+    "Cells_AreaShape_Center_Y",
+    "Cells_Intensity_MeanIntensity_OrigDNA",
+    "Cells_Intensity_MeanIntensity_OrigAGP",
+    "Cells_Intensity_MeanIntensity_OrigRNA"
+  ],
+  "pca_explained_variance_ratio": [
+    1.0,
+    5.644522568432304e-33
+  ],
+  "pca_plot_path": "/mnt/d/CellPainting-Claw-main/CellPainting-Claw-main/demo/workspace/outputs/quick_start_classical/07_cyto_summary/pca_plot.png"
+}

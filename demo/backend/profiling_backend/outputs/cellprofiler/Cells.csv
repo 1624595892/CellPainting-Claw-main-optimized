@@ -1,0 +1,5 @@
+ImageNumber,ObjectNumber,Parent_Nuclei,AreaShape_BoundingBoxMinimum_X,AreaShape_BoundingBoxMaximum_X,AreaShape_BoundingBoxMinimum_Y,AreaShape_BoundingBoxMaximum_Y,AreaShape_Center_X,AreaShape_Center_Y,AreaShape_Area,Intensity_MeanIntensity_OrigDNA,Intensity_MeanIntensity_OrigAGP,Intensity_MeanIntensity_OrigRNA
+1,1,1,14,31,12,29,22.0,20.0,197.0,1115.0,1000.0,938.0
+1,2,2,32,49,34,51,40.0,42.0,197.0,1130.0,1020.0,956.0
+2,1,1,16,33,14,31,24.0,22.0,197.0,1215.0,1080.0,1008.0
+2,2,2,30,47,36,53,38.0,44.0,197.0,1230.0,1100.0,1026.0

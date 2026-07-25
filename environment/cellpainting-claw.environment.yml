@@ -1,0 +1,40 @@
+name: cellpainting-claw
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10.12
+  - pip
+  - cellprofiler>=4.2.8
+  - cellprofiler-core>=4.2.8
+  - cellprofiler-library>=4.2.8
+  - python-bioformats=4.0.6
+  - python-javabridge=4.0.3
+  - openjdk=22.0.1
+  - numpy=1.26.4
+  - pandas=2.3.3
+  - pyarrow=16.1.0
+  - scikit-learn=1.7.2
+  - scikit-image>=0.21
+  - matplotlib-base=3.10.1
+  - pillow=10.3.0
+  - tifffile>=2022.4.8
+  - pyyaml=6.0.3
+  - pytest
+  - awscli
+  - pip:
+      - deepprofiler>=0.5.1
+      - pycytominer==1.4.0
+      - scipy==1.11.4
+      - quilt3
+      - cpgdata>=0.6.0
+      - botocore
+      - boto3
+      - sqlalchemy==2.0.48
+      - fire==0.7.1
+      - termcolor==3.3.0
+      - tensorflow>=2.10,<2.16
+      - efficientnet>=1.1.1
+      - opencv-python-headless>=4.10.0
+      - pydantic>=2.11.4

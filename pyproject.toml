@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cellpainting-claw"
+version = "0.1.0"
+description = "CellPainting-Claw: a standardized Cell Painting workflow library, CLI, skills layer, and agent integration surface"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "OpenAI Codex" }
+]
+keywords = ["cell-painting", "pycytominer", "cellprofiler", "image-analysis"]
+dependencies = [
+  "matplotlib",
+  "numpy",
+  "pandas",
+  "Pillow",
+  "pyarrow",
+  "pycytominer",
+  "scikit-learn",
+  "tifffile",
+]
+
+[project.optional-dependencies]
+data-access = [
+  "boto3",
+  "botocore",
+  "cpgdata>=0.6.0",
+  "quilt3",
+]
+deepprofiler = [
+  "deepprofiler>=0.5.1",
+  "tensorflow>=2.10,<2.16",
+  "efficientnet>=1.1.1",
+]
+mcp = [
+  "mcp[cli]>=1,<2",
+]
+test = [
+  "pytest>=8",
+]
+docs = [
+  "sphinx>=8,<9",
+  "myst-nb>=1,<2",
+  "myst-parser>=3,<5",
+  "furo>=2024.8.6",
+]
+
+[project.scripts]
+cellpainting-claw = "cellpainting_claw.cli:main"
+cellpainting-skills = "cellpainting_skills.cli:main"
+cellpainting-claw-tests = "cellpainting_claw.test_suites:main"
+cellpaint-pipeline = "cellpaint_pipeline.cli:main"
+cellpaint-pipeline-tests = "cellpaint_pipeline.test_suites:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Large data
+demo/workspace/reference_data/
+Cell_Painting_CNN_v1.hdf5
+*.hdf5
+*.h5
+
+# IDE
+.vscode/
+.idea/
+
+# Temp
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

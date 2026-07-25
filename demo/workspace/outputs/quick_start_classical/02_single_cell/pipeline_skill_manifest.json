@@ -1,0 +1,44 @@
+{
+  "implementation": "cellpaint_pipeline.profiling_native",
+  "generated_utc": "2026-07-19T05:33:49Z",
+  "skill": {
+    "key": "cp-build-single-cell-table",
+    "description": "Merge CellProfiler image and object tables into a single-cell measurements table.",
+    "category": "profiling",
+    "input_keys": [
+      "image_csv_path",
+      "object_table_path",
+      "object_table",
+      "output_dir"
+    ],
+    "typical_outputs": [
+      "single_cell.csv.gz"
+    ],
+    "implements_with": [
+      "cellpaint_pipeline.profiling_native"
+    ],
+    "user_summary": "Use this skill when you want one single-cell table after CellProfiler has produced the compartment tables.",
+    "agent_summary": "Choose this skill when the request is to turn CellProfiler output tables into one single-cell table.",
+    "composes_with": [
+      "cyto-aggregate-profiles",
+      "cyto-annotate-profiles",
+      "cyto-normalize-profiles",
+      "cyto-select-profile-features"
+    ],
+    "status": "primary",
+    "replaced_by": []
+  },
+  "output_dir": "/mnt/d/CellPainting-Claw-main/CellPainting-Claw-main/demo/workspace/outputs/quick_start_classical/02_single_cell",
+  "primary_outputs": {
+    "single_cell_path": "/mnt/d/CellPainting-Claw-main/CellPainting-Claw-main/demo/workspace/outputs/quick_start_classical/02_single_cell/single_cell.csv.gz"
+  },
+  "details": {
+    "output_path": "/mnt/d/CellPainting-Claw-main/CellPainting-Claw-main/demo/workspace/outputs/quick_start_classical/02_single_cell/single_cell.csv.gz",
+    "row_count": 4,
+    "column_count": 16,
+    "object_table": "Cells",
+    "mode": "explicit",
+    "shard_count": 1
+  },
+  "ok": true
+}
