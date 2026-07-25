@@ -11,9 +11,9 @@
 
 | 组件 | 优化前 | 优化后 | 来源 |
 |------|--------|--------|------|
-| **DeepProfiler** | 0.3.1 (PyPI) | **0.5.1** | `D:\DeepProfiler-master\DeepProfiler-master` |
-| **CellProfiler** | 4.2.6 (conda) | **4.2.8** | `D:\CellProfiler-main\CellProfiler-main` |
-| **cellprofiler-core** | 4.2.6 | **5.0.0** | `D:\CellProfiler-main\...\src\subpackages\core` |
+| **DeepProfiler** | 0.3.1 (PyPI) | **0.5.1** | `../DeepProfiler-master` |
+| **CellProfiler** | 4.2.6 (conda) | **4.2.8** | `../CellProfiler-main` |
+| **cellprofiler-core** | 4.2.6 | **5.0.0** | `../CellProfiler-main/src/subpackages/core` |
 | **cellprofiler-library** | — (新增) | **5.0.0** | `D:\CellProfiler-main\...\src\subpackages\library` |
 | **TensorFlow** | 2.10.1 | **2.15.1** | pip |
 | **NumPy** | 1.26.4 | 1.26.4 | — |
@@ -141,7 +141,7 @@
 | 1 | `pyproject.toml` | 依赖更新: DeepProfiler `>=0.5.1`, 移除 `tensorflow-addons`, 新增 `efficientnet` |
 | 2 | `environment/cellpainting-claw.environment.yml` | 依赖更新: CellProfiler `>=4.2.8`, `scikit-image>=0.21`, `tifffile>=2022.4.8`, 新增 `efficientnet`, `pydantic`, `opencv-python-headless` |
 | 3 | `src/cellpaint_pipeline/adapters/deepprofiler_project.py` | 移除废弃的 `_ensure_deepprofiler_plugins_link()` |
-| 4 | `D:\DeepProfiler-master\...\deepprofiler\__main__.py` | Bug fix: `context.obj` 初始化为 `{}` |
+| 4 | `../DeepProfiler-master/deepprofiler/__main__.py` | Bug fix: `context.obj` 初始化为 `{}` |
 | 5 | `demo/backend/profiling_backend/scripts/07_run_official_cellprofiler.py` | 新增 CellProfiler 分析脚本 |
 | 6 | `demo/run_deepprofiler_demo.py` | 新增 DeepProfiler 演示脚本 |
 
