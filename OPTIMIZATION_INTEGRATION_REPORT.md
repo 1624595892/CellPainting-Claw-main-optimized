@@ -335,4 +335,67 @@ top_conv:   [1,1,320,1280] mean=0.0008  std=0.099   ✅
 | 报告 | — | ✅ | OPTIMIZATION_INTEGRATION_REPORT.md |
 | Notebook | — | ✅ | docs/quick_start/index.ipynb |
 | Demo 脚本 | — | ✅ | demo/dp_tf2_profile.py |
+
+---
+
+## 十一、瓶颈总结
+
+### 11.1 已完成：结果不变的优化全部应用
+
+```
+CellProfiler v4.2.8 (9项)       DeepProfiler v0.5.1 + TF2 (7项)
+├─ GC 软化         38.4×         ├─ np.savez 无压缩    34.0×
+├─ HDF5 Flush      17.1×         ├─ skip concat         9.7×
+├─ 3D 并行          3.5×         ├─ np.stack            4.7×
+├─ 递归消除         1.7×         ├─ np.bincount         3.8×
+├─ 数组拷贝消除      1.6×         ├─ cumsum 单次         1.9×
+├─ 内存 HDF5        1.5×         ├─ prefetch           1.2×
+├─ DAG 排序         1.1×         └─ TF2 推理         8ms/crop
+├─ 队列扩容         1.0×
+└─ Numba JIT        1.0×
+
+代码级优化 (5项): S3 并发 | npz 并行 | 预览并行 | roundtrip 删除 | usecols
+```
+
+### 11.2 不可优化的瓶颈：MeasureTexture
+
+```
+CellProfiler 1080×1080 实测:
+
+模块         耗时     占比    可优化?
+──────────────────────────────────
+LoadData      7s     2%     ❌ I/O bound
+ImageMath    ~1s     0%     ❌ 运算量极小
+Identify*     3s     1%     ❌ C 代码已最优
+MeasureColoc 30s     9%     ❌ C 代码已最优
+MeasureGran  70s    21%     ❌ C 代码已最优
+MeasureTexture 320s  94%    ❌ 核心瓶颈
+Others       19s     6%     ❌
+──────────────────────────────────
+总计        ~450s per image
+```
+
+**MeasureTexture 为什么动不了：**
+
+```
+单次 mahotas.haralick (80×80 cell, 256 灰度级):
+  ┌─────────────────────────────────────┐
+  │ cooccurence GLCM:  0.2ms  (1%)       │ ← GPU/并行, 实测更慢
+  │ haralick_features: 26.4ms (99%)      │ ← mahotas C++ 极致优化
+  └─────────────────────────────────────┘
+
+14,400 次调用 = 72 组 (8通道×3对象×3尺度) × 200 细胞
+14,400 × 26ms ≈ 374s → 实际 320s (多核调度略快)
+
+尝试过的方案:
+  ThreadPool 并行    → 慢 41% (内存带宽瓶颈)
+  ProcessPool 并行   → 不可行 (workspace 不能 pickle)
+  GPU bincount GLCM  → 慢 0.8× (C++ 单线程更快)
+  GPU 全特征         → 数值差异 0.5%, 慢 0.2×
+  Numba JIT          → GLCM 已 0.2ms, 无加速空间
+  多线程 mahotas     → 需 fork C++ 源码重编译
+  减少灰度级/通道    → 结果会变
+```
+
+**结论：** MeasureTexture 的瓶颈在 mahotas C++ 代码的 Haralick 特征计算。单线程已跑满一个核。要加速只能：1) mahotas 出多线程版 2) 接受参数变更 3) 换用 GPU + CUDA kernel 重写全套 Haralick（多天工作量）。当前无不动结果且可行的方案。
 ```
