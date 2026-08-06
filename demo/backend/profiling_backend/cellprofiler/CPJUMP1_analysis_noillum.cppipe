@@ -16,7 +16,7 @@ LoadData:[module_num:1|svn_version:'Unknown'|variable_revision_number:6|show_win
     Select metadata tags for grouping:Plate,Well,Site
     Rescale intensities?:Yes
 
-CorrectIlluminationApply:[module_num:2|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:False]
+CorrectIlluminationApply:[module_num:2|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:False|wants_pause:False]
     Select the input image:OrigDNA
     Name the output image:PreDNA
     Select the illumination function:IllumDNA
@@ -294,7 +294,7 @@ FlagImage:[module_num:13|svn_version:'Unknown'|variable_revision_number:4|show_w
     Class number:2
     Ignore flag skips on last cycle?:No
 
-CorrectIlluminationCalculate:[module_num:14|svn_version:'Unknown'|variable_revision_number:2|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+CorrectIlluminationCalculate:[module_num:14|svn_version:'Unknown'|variable_revision_number:2|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
     Select the input image:DNA
     Name the output image:IllumBlue
     Select how the illumination function is calculated:Background
@@ -319,7 +319,7 @@ CorrectIlluminationCalculate:[module_num:14|svn_version:'Unknown'|variable_revis
     Maximum number of iterations:40
     Residual value for convergence:0.001
 
-CorrectIlluminationApply:[module_num:15|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+CorrectIlluminationApply:[module_num:15|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
     Select the input image:DNA
     Name the output image:CorrBlue
     Select the illumination function:IllumBlue

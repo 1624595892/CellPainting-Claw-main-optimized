@@ -1,8 +1,11 @@
-CellProfiler Pipeline: http://www.cellprofiler.org
-Version:4
-DateRevision:406
+Key,Value
+CellProfiler_Version,5.0.0
+Metadata_GroupingTags,"[""Metadata_Plate"", ""Metadata_Well"", ""Metadata_Site""]"
+Pipeline_Pipeline,"CellProfiler Pipeline: http://www.cellprofiler.org
+Version:5
+DateRevision:500
 GitHash:
-ModuleCount:33
+ModuleCount:37
 HasImagePlaneDetails:False
 
 LoadData:[module_num:1|svn_version:'Unknown'|variable_revision_number:6|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
@@ -16,7 +19,7 @@ LoadData:[module_num:1|svn_version:'Unknown'|variable_revision_number:6|show_win
     Select metadata tags for grouping:Plate,Well,Site
     Rescale intensities?:Yes
 
-CorrectIlluminationApply:[module_num:2|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:False]
+CorrectIlluminationApply:[module_num:2|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select the input image:OrigDNA
     Name the output image:PreDNA
     Select the illumination function:IllumDNA
@@ -63,12 +66,12 @@ ImageMath:[module_num:3|svn_version:'Unknown'|variable_revision_number:5|show_wi
     Ignore the image masks?:No
     Name the output image:DNA
     Image or measurement?:Image
-    Select the first image:PreDNA
-    Multiply the first image by:1.0
+    Select the image:PreDNA
+    Multiply the image by:1.0
     Measurement:
     Image or measurement?:Image
-    Select the second image:
-    Multiply the second image by:1.0
+    Select the image:
+    Multiply the image by:1.0
     Measurement:
 
 ImageMath:[module_num:4|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
@@ -82,12 +85,12 @@ ImageMath:[module_num:4|svn_version:'Unknown'|variable_revision_number:5|show_wi
     Ignore the image masks?:No
     Name the output image:ER
     Image or measurement?:Image
-    Select the first image:PreER
-    Multiply the first image by:1.0
+    Select the image:PreER
+    Multiply the image by:1.0
     Measurement:
     Image or measurement?:Image
-    Select the second image:
-    Multiply the second image by:1.0
+    Select the image:
+    Multiply the image by:1.0
     Measurement:
 
 ImageMath:[module_num:5|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
@@ -101,12 +104,12 @@ ImageMath:[module_num:5|svn_version:'Unknown'|variable_revision_number:5|show_wi
     Ignore the image masks?:No
     Name the output image:AGP
     Image or measurement?:Image
-    Select the first image:PreAGP
-    Multiply the first image by:1.0
+    Select the image:PreAGP
+    Multiply the image by:1.0
     Measurement:
     Image or measurement?:Image
-    Select the second image:
-    Multiply the second image by:1.0
+    Select the image:
+    Multiply the image by:1.0
     Measurement:
 
 ImageMath:[module_num:6|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
@@ -120,12 +123,12 @@ ImageMath:[module_num:6|svn_version:'Unknown'|variable_revision_number:5|show_wi
     Ignore the image masks?:No
     Name the output image:Mito
     Image or measurement?:Image
-    Select the first image:PreMito
-    Multiply the first image by:1.0
+    Select the image:PreMito
+    Multiply the image by:1.0
     Measurement:
     Image or measurement?:Image
-    Select the second image:
-    Multiply the second image by:1.0
+    Select the image:
+    Multiply the image by:1.0
     Measurement:
 
 ImageMath:[module_num:7|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
@@ -139,12 +142,12 @@ ImageMath:[module_num:7|svn_version:'Unknown'|variable_revision_number:5|show_wi
     Ignore the image masks?:No
     Name the output image:RNA
     Image or measurement?:Image
-    Select the first image:PreRNA
-    Multiply the first image by:1.0
+    Select the image:PreRNA
+    Multiply the image by:1.0
     Measurement:
     Image or measurement?:Image
-    Select the second image:
-    Multiply the second image by:1.0
+    Select the image:
+    Multiply the image by:1.0
     Measurement:
 
 ImageMath:[module_num:8|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
@@ -158,12 +161,12 @@ ImageMath:[module_num:8|svn_version:'Unknown'|variable_revision_number:5|show_wi
     Ignore the image masks?:No
     Name the output image:Brightfield
     Image or measurement?:Image
-    Select the first image:PreBrightfield
-    Multiply the first image by:1.0
+    Select the image:PreBrightfield
+    Multiply the image by:1.0
     Measurement:
     Image or measurement?:Image
-    Select the second image:
-    Multiply the second image by:1.0
+    Select the image:
+    Multiply the image by:1.0
     Measurement:
 
 ImageMath:[module_num:9|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
@@ -177,12 +180,12 @@ ImageMath:[module_num:9|svn_version:'Unknown'|variable_revision_number:5|show_wi
     Ignore the image masks?:No
     Name the output image:HighZBF
     Image or measurement?:Image
-    Select the first image:PreHighZBF
-    Multiply the first image by:1.0
+    Select the image:PreHighZBF
+    Multiply the image by:1.0
     Measurement:
     Image or measurement?:Image
-    Select the second image:
-    Multiply the second image by:1.0
+    Select the image:
+    Multiply the image by:1.0
     Measurement:
 
 ImageMath:[module_num:10|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
@@ -196,12 +199,12 @@ ImageMath:[module_num:10|svn_version:'Unknown'|variable_revision_number:5|show_w
     Ignore the image masks?:No
     Name the output image:LowZBF
     Image or measurement?:Image
-    Select the first image:PreLowZBF
-    Multiply the first image by:1.0
+    Select the image:PreLowZBF
+    Multiply the image by:1.0
     Measurement:
     Image or measurement?:Image
-    Select the second image:
-    Multiply the second image by:1.0
+    Select the image:
+    Multiply the image by:1.0
     Measurement:
 
 MeasureImageQuality:[module_num:11|svn_version:'Unknown'|variable_revision_number:6|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
@@ -260,7 +263,7 @@ MeasureImageQuality:[module_num:12|svn_version:'Unknown'|variable_revision_numbe
     Minimize the weighted variance or the entropy?:Weighted variance
     Assign pixels in the middle intensity class to the foreground or the background?:Foreground
 
-FlagImage:[module_num:13|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
+FlagImage:[module_num:13|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
     Hidden:2
     Hidden:1
     Name the flag's category:Metadata
@@ -277,6 +280,7 @@ FlagImage:[module_num:13|svn_version:'Unknown'|variable_revision_number:4|show_w
     Rules file location:Default Input Folder sub-folder|qc
     Rules file name:is_saturated_rules.txt
     Class number:2
+    Allow fuzzy feature matching?:No
     Hidden:1
     Name the flag's category:Metadata
     Name the flag:QCFlag_isBlurry
@@ -292,6 +296,7 @@ FlagImage:[module_num:13|svn_version:'Unknown'|variable_revision_number:4|show_w
     Rules file location:Default Output Folder sub-folder|../qc
     Rules file name:is_blurry_rules.txt
     Class number:2
+    Allow fuzzy feature matching?:No
     Ignore flag skips on last cycle?:No
 
 CorrectIlluminationCalculate:[module_num:14|svn_version:'Unknown'|variable_revision_number:2|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
@@ -327,7 +332,7 @@ CorrectIlluminationApply:[module_num:15|svn_version:'Unknown'|variable_revision_
     Set output image values less than 0 equal to 0?:Yes
     Set output image values greater than 1 equal to 1?:Yes
 
-IdentifyPrimaryObjects:[module_num:16|svn_version:'Unknown'|variable_revision_number:14|show_window:False|notes:['']|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:True]
+IdentifyPrimaryObjects:[module_num:16|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:['']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:True]
     Select the input image:CorrBlue
     Name the primary objects to be identified:Nuclei
     Typical diameter of objects, in pixel units (Min,Max):10,75
@@ -343,10 +348,8 @@ IdentifyPrimaryObjects:[module_num:16|svn_version:'Unknown'|variable_revision_nu
     Automatically calculate minimum allowed distance between local maxima?:No
     Handling of objects if excessive number of objects identified:Continue
     Maximum number of objects:500
-    Display accepted local maxima?:No
-    Select maxima color:Blue
     Use advanced settings?:Yes
-    Threshold setting version:11
+    Threshold setting version:12
     Threshold strategy:Global
     Thresholding method:Minimum Cross-Entropy
     Threshold smoothing scale:3
@@ -355,6 +358,7 @@ IdentifyPrimaryObjects:[module_num:16|svn_version:'Unknown'|variable_revision_nu
     Manual threshold:0.0
     Select the measurement to threshold with:None
     Two-class or three-class thresholding?:Three classes
+    Log transform before thresholding?:No
     Assign pixels in the middle intensity class to the foreground or the background?:Background
     Size of adaptive window:100
     Lower outlier fraction:0.05
@@ -364,7 +368,7 @@ IdentifyPrimaryObjects:[module_num:16|svn_version:'Unknown'|variable_revision_nu
     # of deviations:2
     Thresholding method:Otsu
 
-IdentifySecondaryObjects:[module_num:17|svn_version:'Unknown'|variable_revision_number:10|show_window:False|notes:['']|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:False]
+IdentifySecondaryObjects:[module_num:17|svn_version:'Unknown'|variable_revision_number:10|show_window:False|notes:['']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select the input objects:Nuclei
     Name the objects to be identified:Cells
     Select the method to identify the secondary objects:Watershed - Image
@@ -375,7 +379,7 @@ IdentifySecondaryObjects:[module_num:17|svn_version:'Unknown'|variable_revision_
     Discard the associated primary objects?:No
     Name the new primary objects:FilteredNuclei
     Fill holes in identified objects?:Yes
-    Threshold setting version:11
+    Threshold setting version:12
     Threshold strategy:Global
     Thresholding method:Minimum Cross-Entropy
     Threshold smoothing scale:0
@@ -384,6 +388,7 @@ IdentifySecondaryObjects:[module_num:17|svn_version:'Unknown'|variable_revision_
     Manual threshold:0.0
     Select the measurement to threshold with:None
     Two-class or three-class thresholding?:Three classes
+    Log transform before thresholding?:No
     Assign pixels in the middle intensity class to the foreground or the background?:Foreground
     Size of adaptive window:100
     Lower outlier fraction:0.05
@@ -393,15 +398,19 @@ IdentifySecondaryObjects:[module_num:17|svn_version:'Unknown'|variable_revision_
     # of deviations:2
     Thresholding method:Default
 
-IdentifyTertiaryObjects:[module_num:18|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:True]
+IdentifyTertiaryObjects:[module_num:18|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:True]
     Select the larger identified objects:Cells
     Select the smaller identified objects:Nuclei
     Name the tertiary objects to be identified:Cytoplasm
     Shrink smaller object prior to subtraction?:Yes
 
-MeasureColocalization:[module_num:19|svn_version:'Unknown'|variable_revision_number:5|show_window:False|notes:['']|batch_state:array(b'', dtype='|S1')|enabled:False|wants_pause:False]
+MeasureColocalization:[module_num:19|svn_version:'Unknown'|variable_revision_number:6|show_window:False|notes:['']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select images to measure:AGP, Brightfield, DNA, ER, HighZBF, LowZBF, Mito, RNA
     Set threshold as percentage of maximum intensity for the images:15.0
+    Enable image specific thresholds?:No
+    Threshold count:0
+    Enable threshold visualization?:No
+    Select images to visualize thresholds:
     Select where to measure correlation:Within objects
     Select objects to measure:Nuclei, Cytoplasm, Cells
     Run all metrics?:No
@@ -411,8 +420,10 @@ MeasureColocalization:[module_num:19|svn_version:'Unknown'|variable_revision_num
     Calculate the Overlap coefficients?:Yes
     Calculate the Manders coefficients using Costes auto threshold?:No
     Method for Costes thresholding:Fast
+    Save thresholded mask?:No
+    Save mask count:0
 
-MeasureGranularity:[module_num:20|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:False|wants_pause:False]
+MeasureGranularity:[module_num:20|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select images to measure:AGP, Brightfield, DNA, ER, HighZBF, LowZBF, Mito, RNA
     Measure within objects?:Yes
     Select objects to measure:Nuclei, Cytoplasm, Cells
@@ -421,11 +432,11 @@ MeasureGranularity:[module_num:20|svn_version:'Unknown'|variable_revision_number
     Radius of structuring element:10
     Range of the granular spectrum:16
 
-MeasureObjectIntensity:[module_num:21|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:False]
+MeasureObjectIntensity:[module_num:21|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select images to measure:AGP, Brightfield, DNA, ER, HighZBF, LowZBF, Mito, RNA
     Select objects to measure:Nuclei, Cytoplasm, Cells
 
-MeasureObjectNeighbors:[module_num:22|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:False]
+MeasureObjectNeighbors:[module_num:22|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select objects to measure:Cells
     Select neighboring objects to measure:Cells
     Method to determine neighbors:Within a specified distance
@@ -438,7 +449,7 @@ MeasureObjectNeighbors:[module_num:22|svn_version:'Unknown'|variable_revision_nu
     Name the output image:PercentTouching
     Select colormap:Default
 
-MeasureObjectNeighbors:[module_num:23|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:False]
+MeasureObjectNeighbors:[module_num:23|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select objects to measure:Nuclei
     Select neighboring objects to measure:Nuclei
     Method to determine neighbors:Within a specified distance
@@ -451,7 +462,7 @@ MeasureObjectNeighbors:[module_num:23|svn_version:'Unknown'|variable_revision_nu
     Name the output image:PercentTouching
     Select colormap:Default
 
-MeasureObjectNeighbors:[module_num:24|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:False]
+MeasureObjectNeighbors:[module_num:24|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select objects to measure:Cells
     Select neighboring objects to measure:Cells
     Method to determine neighbors:Adjacent
@@ -484,12 +495,12 @@ MeasureObjectIntensityDistribution:[module_num:25|svn_version:'Unknown'|variable
     Number of bins:4
     Maximum radius:100
 
-MeasureObjectSizeShape:[module_num:26|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:False]
+MeasureObjectSizeShape:[module_num:26|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select object sets to measure:Cells, Nuclei, Cytoplasm
     Calculate the Zernike features?:Yes
     Calculate the advanced features?:No
 
-MeasureTexture:[module_num:27|svn_version:'Unknown'|variable_revision_number:7|show_window:False|notes:[]|batch_state:array(b'', dtype='|S1')|enabled:True|wants_pause:False]
+MeasureTexture:[module_num:27|svn_version:'Unknown'|variable_revision_number:7|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select images to measure:AGP, Brightfield, DNA, ER, HighZBF, LowZBF, Mito, RNA
     Select objects to measure:Nuclei, Cytoplasm, Cells
     Enter how many gray levels to measure the texture at:256
@@ -519,12 +530,12 @@ OverlayOutlines:[module_num:29|svn_version:'Unknown'|variable_revision_number:4|
     Select outline color:Red
     Select objects to display:Cells
 
-SaveImages:[module_num:30|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+SaveImages:[module_num:30|svn_version:'Unknown'|variable_revision_number:16|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select the type of image to save:Image
     Select the image to save:NucleiOutlines
     Select method for constructing file names:Single name
     Select image name for file prefix:OrigDNA
-    Enter single file name:\g<Well>_s\g<Site>--nuclei_outlines
+    Enter single file name:\g<Plate>_\g<Well>_s\g<Site>--nuclei_outlines
     Number of digits:4
     Append a suffix to the image file name?:Yes
     Text to append to the image name:_nuclei
@@ -537,13 +548,14 @@ SaveImages:[module_num:30|svn_version:'Unknown'|variable_revision_number:15|show
     Create subfolders in the output folder?:No
     Base image folder:Default Input Folder
     How to save the series:T (Time)
+    Save with lossless compression?:No
 
-SaveImages:[module_num:31|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+SaveImages:[module_num:31|svn_version:'Unknown'|variable_revision_number:16|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select the type of image to save:Image
     Select the image to save:CellOutlines
     Select method for constructing file names:Single name
     Select image name for file prefix:OrigDNA
-    Enter single file name:\g<Well>_s\g<Site>--cell_outlines
+    Enter single file name:\g<Plate>_\g<Well>_s\g<Site>--cell_outlines
     Number of digits:4
     Append a suffix to the image file name?:Yes
     Text to append to the image name:_nuclei
@@ -556,9 +568,62 @@ SaveImages:[module_num:31|svn_version:'Unknown'|variable_revision_number:15|show
     Create subfolders in the output folder?:No
     Base image folder:Default Input Folder
     How to save the series:T (Time)
+    Save with lossless compression?:No
 
-ExportToSpreadsheet:[module_num:32|svn_version:'Unknown'|variable_revision_number:13|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
-    Select the column delimiter:Comma (",")
+ConvertObjectsToImage:[module_num:32|svn_version:'Unknown'|variable_revision_number:1|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input objects:Nuclei
+    Name the output image:NucleiLabels
+    Select the color format:uint16
+    Select the colormap:Default
+
+ConvertObjectsToImage:[module_num:33|svn_version:'Unknown'|variable_revision_number:1|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input objects:Cells
+    Name the output image:CellLabels
+    Select the color format:uint16
+    Select the colormap:Default
+
+SaveImages:[module_num:34|svn_version:'Unknown'|variable_revision_number:16|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:NucleiLabels
+    Select method for constructing file names:Single name
+    Select image name for file prefix:OrigDNA
+    Enter single file name:\g<Plate>_\g<Well>_s\g<Site>--nuclei_labels
+    Number of digits:4
+    Append a suffix to the image file name?:No
+    Text to append to the image name:
+    Saved file format:tiff
+    Output file location:Default Output Folder sub-folder|labels
+    Image bit depth:16-bit integer
+    Overwrite existing files without warning?:Yes
+    When to save:Every cycle
+    Record the file and path information to the saved image?:Yes
+    Create subfolders in the output folder?:No
+    Base image folder:Default Input Folder
+    How to save the series:T (Time)
+    Save with lossless compression?:No
+
+SaveImages:[module_num:35|svn_version:'Unknown'|variable_revision_number:16|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:CellLabels
+    Select method for constructing file names:Single name
+    Select image name for file prefix:OrigDNA
+    Enter single file name:\g<Plate>_\g<Well>_s\g<Site>--cell_labels
+    Number of digits:4
+    Append a suffix to the image file name?:No
+    Text to append to the image name:
+    Saved file format:tiff
+    Output file location:Default Output Folder sub-folder|labels
+    Image bit depth:16-bit integer
+    Overwrite existing files without warning?:Yes
+    When to save:Every cycle
+    Record the file and path information to the saved image?:Yes
+    Create subfolders in the output folder?:No
+    Base image folder:Default Input Folder
+    How to save the series:T (Time)
+    Save with lossless compression?:No
+
+ExportToSpreadsheet:[module_num:36|svn_version:'Unknown'|variable_revision_number:13|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the column delimiter:Comma ("","")
     Add image metadata columns to your object data file?:No
     Add image file and folder names to your object data file?:No
     Select the measurements to export:No
@@ -581,7 +646,7 @@ ExportToSpreadsheet:[module_num:32|svn_version:'Unknown'|variable_revision_numbe
     File name:DATA.csv
     Use the object name for the file name?:Yes
 
-CreateBatchFiles:[module_num:33|svn_version:'Unknown'|variable_revision_number:8|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
+CreateBatchFiles:[module_num:37|svn_version:'Unknown'|variable_revision_number:8|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
     Store batch files in default output folder?:Yes
     Output folder path:/imaging/analysis/2008_12_04_Imaging_CDRP_for_MLPCN/HDAC_inhibitors/20100803
     Are the cluster computers running Windows?:No
@@ -590,3 +655,5 @@ CreateBatchFiles:[module_num:33|svn_version:'Unknown'|variable_revision_number:8
     Hidden- default input folder at time of save:/cbnt/cbimage/HCS
     Hidden- revision number:10346
     Hidden- from old matlab:No
+"
+Run_Timestamp,2026-08-03T09:19:32.699995
