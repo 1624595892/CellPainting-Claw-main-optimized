@@ -1,0 +1,65 @@
+{
+  "dataset": {
+    "metadata": {
+      "label_field": "Class",
+      "control_value": "DMSO"
+    },
+    "images": {
+      "channels": [
+        "DNA",
+        "ER",
+        "RNA",
+        "AGP",
+        "Mito"
+      ],
+      "file_format": "tif",
+      "bits": 16,
+      "width": 1080,
+      "height": 1080
+    },
+    "locations": {
+      "mode": "single_cells",
+      "box_size": 96,
+      "mask_objects": false
+    }
+  },
+  "prepare": {
+    "compression": {
+      "implement": false,
+      "scaling_factor": 1.0
+    }
+  },
+  "profile": {
+    "feature_layer": "pool5",
+    "checkpoint": "Cell_Painting_CNN_v1.hdf5",
+    "batch_size": 1,
+    "use_pretrained_input_size": false
+  },
+  "train": {
+    "partition": {
+      "targets": [
+        "Class"
+      ]
+    },
+    "model": {
+      "name": "efficientnet",
+      "crop_generator": "crop_generator",
+      "initialization": "random",
+      "params": {
+        "conv_blocks": 0,
+        "learning_rate": 0.0001,
+        "batch_size": 1,
+        "label_smoothing": 0.0
+      }
+    },
+    "validation": {
+      "batch_size": 1
+    },
+    "sampling": {
+      "factor": 1.0,
+      "cache_size": 1,
+      "workers": 1,
+      "alpha": 0.2
+    }
+  }
+}

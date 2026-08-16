@@ -1,3 +1,0 @@
-Metadata_Plate,Metadata_Well,Metadata_Object_Count,Metadata_Treatment,Metadata_ControlType,Metadata_Batch,PC1,PC2
-BR00000001,A01,2,DEMO_A01,negative_control,demo_batch_01,-1.6521581969399557,1.2412670766236366e-16
-BR00000001,A02,2,DEMO_A02,negative_control,demo_batch_01,1.6521581969399561,1.2412670766236363e-16

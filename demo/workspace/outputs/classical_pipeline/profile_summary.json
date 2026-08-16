@@ -1,0 +1,20 @@
+{
+  "implementation": "classical_pipeline_optimized",
+  "plate": "BR00117035",
+  "wells": [
+    "A01",
+    "A02"
+  ],
+  "cell_count": 123,
+  "well_count": 2,
+  "feature_count_raw": 15524,
+  "feature_count_selected": 14992,
+  "pca_explained_variance_ratio": [
+    1.0,
+    1.9340063942994138e-29
+  ],
+  "cellprofiler_times": {
+    "A01": 418.7,
+    "A02": 515.3
+  }
+}

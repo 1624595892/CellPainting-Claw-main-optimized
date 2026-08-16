@@ -1,0 +1,34 @@
+{
+  "implementation": "cellpaint_pipeline.deepprofiler_project",
+  "project_root": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_project",
+  "export_root": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_export",
+  "export_manifest_path": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_export\\manifest.json",
+  "config_path": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_project\\inputs\\config\\profile_config.json",
+  "metadata_path": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_project\\inputs\\metadata\\index.csv",
+  "locations_root": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_project\\inputs\\locations",
+  "experiment_name": "cell_painting_cnn_demo",
+  "field_count": 2,
+  "location_file_count": 2,
+  "image_width": 1080,
+  "image_height": 1080,
+  "image_bits": 16,
+  "image_format": "tiff",
+  "label_field": "Metadata_Well",
+  "control_value": "A01",
+  "replicate_field": "Metadata_Well",
+  "checkpoint_filename": "Cell_Painting_CNN_v1.hdf5",
+  "checkpoint_url": "https://zenodo.org/records/7114558/files/Cell_Painting_CNN_v1.hdf5?download=1",
+  "source_label": "deepprofiler-export",
+  "channels": [
+    "DNA",
+    "RNA",
+    "ER",
+    "AGP",
+    "Mito"
+  ],
+  "notes": [
+    "Images are referenced directly from the source dataset; no image copies are made.",
+    "Locations are converted to the DeepProfiler two-column nuclei centroid format.",
+    "This project is configured for unmasked single-cell-in-context profiling by default."
+  ]
+}

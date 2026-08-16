@@ -1,0 +1,23 @@
+{
+  "implementation": "cellpaint_pipeline.deepprofiler_feature_collection",
+  "project_root": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_project",
+  "project_manifest_path": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_project\\project_manifest.json",
+  "feature_dir": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_project\\outputs\\cell_painting_cnn\\features",
+  "output_dir": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_tables",
+  "experiment_name": "cell_painting_cnn",
+  "single_cell_parquet_path": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_tables\\deepprofiler_single_cell.parquet",
+  "single_cell_csv_gz_path": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_tables\\deepprofiler_single_cell.csv.gz",
+  "well_aggregated_parquet_path": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_tables\\deepprofiler_well_aggregated.parquet",
+  "well_aggregated_csv_gz_path": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_tables\\deepprofiler_well_aggregated.csv.gz",
+  "field_summary_path": "D:\\CellPainting-Claw-main2\\CellPainting-Claw-main\\demo\\workspace\\outputs\\deepprofiler_pipeline\\deepprofiler_tables\\deepprofiler_field_summary.csv",
+  "field_file_count": 2,
+  "cell_count": 123,
+  "feature_count": 672,
+  "metadata_column_count": 46,
+  "well_count": 2,
+  "notes": [
+    "Single-cell output is pycytominer-friendly: metadata columns are normalized to the Metadata_ prefix.",
+    "Feature columns are exported as Cells_DeepProfiler_####.",
+    "Well-level output is a mean aggregation over all DeepProfiler cells within each (plate, well)."
+  ]
+}
