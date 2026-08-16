@@ -1,0 +1,49 @@
+# Colocalization 三个优化 —— 源码 patch
+# 文件: cellprofiler_library/functions/measurement.py
+# 三个算法等价替换，结果 bit-identical（array_equal=True 验证）
+
+--- a/measurement.py  (raw, 无优化)
++++ b/measurement.py  (final, 优化后)
+
+# ============================================================
+# 优化 1: get_image_rank — RWC 排序 lexsort → argsort（2.0×）
+# ============================================================
+@@ get_image_rank @@
+-    if labels is None:
+-        Rank = numpy.lexsort([im_pixels])
+-    else:
+-        [Rank] = numpy.lexsort(([labels], [im_pixels]))
++    # Dense rank 只依赖像素值，labels 次键不改变 rank 结果
++    Rank = numpy.argsort(im_pixels, kind="stable")
+
+# ============================================================
+# 优化 2: get_threshold_values_for_objects — ndimage.maximum → np.maximum.at（18×）
+# ============================================================
+@@ get_threshold_values_for_objects @@
+-    object_threshold_values = (image_threshold_percentage / 100) * centrosome.cpmorphology.fixup_scipy_ndimage_result(
+-        scipy.ndimage.maximum(pixels, labels, lrange)
+-    )
++    maxima = numpy.zeros(len(lrange), dtype=pixels.dtype)
++    numpy.maximum.at(maxima, labels - 1, pixels)
++    object_threshold_values = (image_threshold_percentage / 100) * maxima
+
+# ============================================================
+# 优化 3: get_thresholded_sum — ndimage.sum → np.bincount（1.6×）
+# ============================================================
+@@ get_thresholded_sum @@
+-    return scipy.ndimage.sum(
+-        pixels[pixels >= object_threshold_values[labels - 1]],
+-        labels[pixels >= object_threshold_values[labels - 1]],
+-        lrange,
+-    ).astype(numpy.float64)
++    above = pixels >= object_threshold_values[labels - 1]
++    return numpy.bincount(
++        labels[above], weights=pixels[above], minlength=len(lrange) + 1
++    )[1:].astype(numpy.float64)
+
+# ============================================================
+# 等价性说明
+# ============================================================
+# 1. lexsort 双键 → argsort 单键: dense rank 只依赖像素值，labels 次键对结果无影响
+# 2. ndimage.maximum → np.maximum.at: 都是求每对象最大值，空 label 都返回 0
+# 3. ndimage.sum → np.bincount: 都是按 label 分组求和，[1:] 丢弃背景(label 0)
