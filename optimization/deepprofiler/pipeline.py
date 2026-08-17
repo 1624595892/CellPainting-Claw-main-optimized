@@ -21,7 +21,7 @@ import pandas as pd
 # ============================================================
 PROJECT_ROOT  = Path(r"D:\CellPainting-Claw-main2")
 CPCLAW_ROOT   = PROJECT_ROOT / "CellPainting-Claw-main"
-DP_LOCAL_SRC  = Path(r"D:\DeepProfiler-master raw\DeepProfiler-master")  # 原版源码，保证输出一致
+DP_LOCAL_SRC  = Path(r"D:\CellPainting-Claw-main2\DeepProfiler-master\DeepProfiler-master")  # 优化版源码（7 项优化）
 CONDA_ENV     = Path(r"D:/MINICONDA/envs/cellpainting-claw")
 PYTHON_EXE    = CONDA_ENV / "python.exe"
 
@@ -108,10 +108,10 @@ def step2_export(dirs: dict):
     else:
         print("  ERROR: no TIFF files"); return
 
-    # CP output per well: A01 from optimized run, A02 from fresh run
+    # CP output per well: use final CP outputs (disk HDF5 + 3 Colocalization optimizations)
     cp_sources = {
-        "A01": CP_OUTPUT,                                          # pre-computed
-        "A02": CPCLAW_ROOT / "demo" / "workspace" / "outputs" / f"{PLATE_NAME}_A02_cp",
+        "A01": CPCLAW_ROOT / "demo" / "workspace" / "outputs" / f"{PLATE_NAME}_A01_final",
+        "A02": CPCLAW_ROOT / "demo" / "workspace" / "outputs" / f"{PLATE_NAME}_A02_final",
     }
 
     # Generate per-well site CSV + field_metadata rows

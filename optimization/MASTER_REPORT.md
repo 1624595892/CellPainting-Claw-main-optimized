@@ -30,22 +30,25 @@ BR00117035 Microscopy Images (1080x1080, 8ch TIFF)
 | Cells detected | 68 | 68 | identical |
 | Output | 5 CSVs | 5 CSVs | identical |
 
-### 2.2 Full Classical Pipeline: A01+A02 (optimized)
+### 2.2 Full Classical Pipeline: A01+A02 (final)
 
 | Step | Time | Share |
 |------|:---:|:---:|
-| CellProfiler A01 | 418.7s | 43.3% |
-| CellProfiler A02 | 515.3s | 53.2% |
-| Single-cell table | 12.0s | 1.2% |
-| Aggregate | 2.8s | 0.3% |
-| Annotate | 2.1s | 0.2% |
-| Normalize | 9.0s | 0.9% |
-| Feature select | 4.9s | 0.5% |
-| PCA + Summary | 3.1s | 0.3% |
-| **Total** | **967.9s (16.1 min)** | **100%** |
+| CellProfiler A01 | 165.9s | 45.3% |
+| CellProfiler A02 | 161.3s | 44.0% |
+| Single-cell table | 13.5s | 3.7% |
+| Aggregate | 3.3s | 0.9% |
+| Annotate | 2.5s | 0.7% |
+| Normalize | 9.6s | 2.6% |
+| Feature select | 6.7s | 1.8% |
+| PCA + Summary | 3.7s | 1.0% |
+| **Total** | **366.5s (6.1 min)** | **100%** |
 
-Output: A01 68 cells + A02 55 cells = 123 total, 14,992 features selected from 15,524 raw
-Result: **A01 & A02 Cells.csv both bit-identical to pre-optimization (0/1941 column diffs)**
+Output: A01 68 cells + A02 55 cells = 123 total, 14,991 features selected from 15,524 raw
+Result: **A01 & A02 Cells.csv / Nuclei.csv / Cytoplasm.csv all bit-identical to raw (0 diff, validator PASS)**
+
+> 结构：CellProfiler 占 89.3%（327.2s，瓶颈），pycytominer 占 10.7%（39.3s）。
+> PCA: PC1=100%, PC2≈0（2 个 well，协方差矩阵秩=1，只有 1 维方差）。
 
 ### 2.3 Colocalization Optimization (NEW — result bit-identical)
 
@@ -95,6 +98,54 @@ Profile 定位 Colocalization 瓶颈后，追加三个算法级优化（不砍�
 - "内存 HDF5"是负优化，应去掉（保持磁盘 HDF5）
 - GC 软化 `gen=0` 在磁盘 HDF5 场景因 `get_conserve_memory()` 默认 False 会完全不 GC 导致超时，应保持全代回收
 - **最终版 327.2s（A01+A02）比 raw 379.3s 快 13.7%，且测量结果 bit-identical**
+
+### 2.5 raw vs final 完整模块对比（28 模块）
+
+raw = `cellprofiler_raw_2well`（subpackages 无优化，同实现），final = 磁盘 HDF5 + 三个优化。
+
+**A01（68 cells）**
+
+| # | 模块 | raw | final | 差异 |
+|---|------|:---:|:---:|:---:|
+| 19 | MeasureColocalization | 29.94s | 17.89s | **−12.05s** |
+| 20 | MeasureGranularity | 58.31s | 41.20s | **−17.11s** |
+| 27 | MeasureTexture | 84.73s | 59.80s | **−24.94s** |
+| 26 | MeasureObjectSizeShape | 10.22s | 8.81s | −1.41s |
+| 21 | MeasureObjectIntensity | 9.58s | 8.06s | −1.52s |
+| 25 | IntensityDistribution | 8.45s | 7.05s | −1.41s |
+| 1-18 | LoadData + Identify + Illum + ImageMath ×8 | ~5.4s | ~4.2s | −1.2s |
+| 22-31 | Neighbors ×3 + Overlay ×2 + SaveImages ×2 | ~2.1s | ~1.6s | −0.5s |
+| | **模块合计** | **208.91s** | **148.73s** | **−60.17s（−28.8%）** |
+
+**A02（55 cells）**
+
+| # | 模块 | raw | final | 差异 |
+|---|------|:---:|:---:|:---:|
+| 19 | MeasureColocalization | 22.72s | 16.20s | −6.52s |
+| 20 | MeasureGranularity | 52.73s | 41.97s | −10.77s |
+| 27 | MeasureTexture | 72.72s | 58.27s | −14.45s |
+| 26 | MeasureObjectSizeShape | 10.00s | 8.30s | −1.70s |
+| 21 | MeasureObjectIntensity | 8.47s | 7.17s | −1.30s |
+| 25 | IntensityDistribution | 6.80s | 6.05s | −0.75s |
+| 1-18 | LoadData + Identify + Illum + ImageMath ×8 | ~4.7s | ~4.1s | −0.6s |
+| 22-31 | Neighbors ×3 + Overlay ×2 + SaveImages ×2 | ~1.9s | ~1.6s | −0.3s |
+| | **模块合计** | **180.16s** | **143.78s** | **−36.38s（−20.2%）** |
+
+**加速来源**：
+- MeasureColocalization −12.05s（A01）= 三个算法优化（lexsort→argsort 等）
+- MeasureTexture −24.94s + Granularity −17.11s = 磁盘 HDF5（去掉内存 HDF5 负优化，释放内存）
+- 次要模块各快 1.4-1.7s = 磁盘 HDF5 的整体内存释放效应
+
+**缺的 5 个模块（无 ExecutionTime）**：
+
+| # | 模块 | 状态 | 重要吗 |
+|---|------|:---:|:---:|
+| 11/12 | MeasureImageQuality ×2 | disabled | ❌ QC 模块，数据已上游 QC |
+| 13 | FlagImage | disabled | ❌ QC 标记 |
+| 32 | ExportToSpreadsheet | enabled | ✅ 导出 CSV（执行 <0.1s，未单独计时）|
+| 33 | CreateBatchFiles | disabled | ❌ 集群批处理（单机不用）|
+
+> 28 个计时模块覆盖全部实际计算量；缺的 5 个要么 disabled 不跑，要么执行 <0.1s，不影响结论。
 
 ---
 
